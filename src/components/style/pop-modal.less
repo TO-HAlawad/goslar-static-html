@@ -1,0 +1,106 @@
+.container-popup.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background: #000000c0;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  padding: 0 7%;
+}
+
+.container-popup {
+  opacity: 0;
+  position: fixed;
+}
+
+.container-popup .popup {
+  display: flex;
+  background: #af0c1f;
+  padding: 4% 0 0;
+  border-radius: 0;
+  height: auto;
+  width: auto;
+  max-width: 1050px;
+  max-height: 850px;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  filter: drop-shadow(2px 4px 8px #00000090);
+  transform: scale(0);
+  transition: all 0.5s ease-in-out;
+}
+
+.container-popup .popup.animated {
+  transform: scale(1);
+}
+
+.container-popup .popup .close-popup {
+  font-size: 42px;
+  position: absolute;
+  top: 0;
+  color: rgba(255, 255, 255, .5);
+  right: 0;
+  margin: 0 10px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px #fff);
+  transition: transform 0.3s ease-in-out;
+}
+
+.container-popup .popup .close-popup:hover {
+  color: #fff;
+  filter: none;
+  transform: rotate(90deg);
+}
+
+.container-popup .popup .title-popup {
+  background: #af0c1f;
+  width: 100vw;
+  text-align: center;
+  color: #fff;
+  padding: 0 0 10px 0;
+  border-bottom: solid;
+}
+
+.container-popup .popup .content-popup {
+  color: #fff;
+  font-size: 18px;
+  overflow-x: auto;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  width: 100%;
+  height: 100%;
+}
+
+.container-popup .popup .content-popup.more-read {
+  -moz-box-shadow: inset 0 -50px 60px -80px #00000080;
+  -webkit-box-shadow: inset 0 -50px 60px -80px #00000080;
+  box-shadow: inset 0 -50px 60px -80px #00000080;
+}
+
+.container-popup .popup .content-popup::-webkit-scrollbar {
+  width: 6px;
+  padding-right: 10px;
+}
+
+.container-popup .popup .content-popup::-webkit-scrollbar-track {
+  background: #b86b00;
+}
+
+.container-popup .popup .content-popup::-webkit-scrollbar-thumb {
+  background: #00000050;
+}
+
+.container-popup .popup .content-popup::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+  cursor: pointer !important;
+}
+
+.container-popup .popup .content-popup::selection {
+  background-color: #00000050 !important;
+}
