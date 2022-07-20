@@ -32,71 +32,71 @@ export default {
       slide: [
         {
           title: "Wohnraum #1",
-          link: "@/components/imgs/sstb01_Wohnraum.jpg",
+          link: "/img/sstb01_Wohnraum.jpg",
         },
         {
           title: "Wohnraum #2",
-          link: "@/components/imgs/sstb02_Wohnraum.jpg",
+          link: "/img/sstb02_Wohnraum.jpg",
         },
         {
           title: "Wohnraum #3",
-          link: "@/components/imgs/sstb03_Wohnraum.jpg",
+          link: "/img/sstb03_Wohnraum.jpg",
         },
         {
           title: "Wohnraum #4",
-          link: "@/components/imgs/sstb04_Wohnraum.jpg",
+          link: "/img/sstb04_Wohnraum.jpg",
         },
         {
           title: "Wohnraum #5",
-          link: "@/components/imgs/sstb05_Wohnraum.jpg",
+          link: "/img/sstb05_Wohnraum.jpg",
         },
         {
           title: "Küche #6",
-          link: "@/components/imgs/sstb06_Kueche.jpg",
+          link: "/img/sstb06_Kueche.jpg",
         },
         {
           title: "Küche #7",
-          link: "@/components/imgs/sstb07_Kueche.jpg",
+          link: "/img/sstb07_Kueche.jpg",
         },
         {
           title: "Schlafzimmer #8",
-          link: "@/components/imgs/sstb08_Schlafzimmer.jpg",
+          link: "/img/sstb08_Schlafzimmer.jpg",
         },
         {
           title: "Bad #9",
-          link: "@/components/imgs/sstb09_WC.jpg",
+          link: "/img/sstb09_WC.jpg",
         },
         {
           title: "Bad #10",
-          link: "@/components/imgs/sstb10_Bad.jpg",
+          link: "/img/sstb10_Bad.jpg",
         },
         {
           title: "Bad #11",
-          link: "@/components/imgs/sstb11_Bad.jpg",
+          link: "/img/sstb11_Bad.jpg",
         },
         {
           title: "Eingang-Flur #12",
-          link: "@/components/imgs/sstb12_Eingang-Flur.jpg",
+          link: "/img/sstb12_Eingang-Flur.jpg",
         },
         {
           title: "Eingang-Flur #13",
-          link: "@/components/imgs/sstb13_Eingang-Flur.jpg",
+          link: "/img/sstb13_Eingang-Flur.jpg",
         },
         {
           title: "Blick #14",
-          link: "@/components/imgs/sstb14_Blick.jpg",
+          link: "/img/sstb14_Blick.jpg",
         },
         {
           title: "Blick #15",
-          link: "@/components/imgs/sstb15_Blick.jpg",
+          link: "/img/sstb15_Blick.jpg",
         },
         {
           title: "Aussen #16",
-          link: "@/components/imgs/sstb16_Aussen.jpg",
+          link: "/img/sstb16_Aussen.jpg",
         },
         {
           title: "Aussen #17",
-          link: "@/components/imgs/sstb17_Aussen.jpg",
+          link: "/img/sstb17_Aussen.jpg",
         },
       ],
     };
@@ -105,96 +105,98 @@ export default {
     popUp(title, img) {
       _popupModalVue.methods.open(title, img);
     },
+    slider() {
+      let sliderImages = Array.from(
+        document.querySelectorAll(".slider-container img")
+      );
+      let slidesCount = sliderImages.length;
+      let currentSlide = Math.floor(Math.random() * slidesCount) + 1;
+      let nextBtn = document.getElementById("next");
+      let prevBtn = document.getElementById("prev");
+      nextBtn.onclick = nextSlide;
+      prevBtn.onclick = prevSlide;
+      let paginationElement = document.createElement("ul");
+
+      paginationElement.setAttribute("id", "pagination-ul");
+      for (let i = 1; i <= slidesCount; i++) {
+        let paginationItem = document.createElement("li");
+        paginationItem.setAttribute("data-slide", i);
+        paginationItem.appendChild(document.createTextNode(i));
+        paginationElement.appendChild(paginationItem);
+      }
+      document.getElementById("indicators").appendChild(paginationElement);
+
+      let paginationCreatedUl = document.getElementById("pagination-ul");
+      let paginationBullets = Array.from(
+        document.querySelectorAll("#pagination-ul li")
+      );
+
+      for (let i = 0; i < paginationBullets.length; i++) {
+        paginationBullets[i].onclick = function () {
+          currentSlide = parseInt(this.getAttribute("data-slide"));
+          theChecker();
+        };
+      }
+
+      theChecker();
+
+      function nextSlide() {
+        if (nextBtn.classList.contains("disabled")) {
+          currentSlide = 1;
+          theChecker();
+        } else {
+          currentSlide++;
+          theChecker();
+        }
+      }
+
+      function prevSlide() {
+        currentSlide--;
+        theChecker();
+      }
+
+      function theChecker() {
+        removeAllActive();
+        sliderImages[currentSlide - 1].classList.add("active");
+        paginationCreatedUl.children[currentSlide - 1].classList.add("active");
+
+        if (currentSlide == 1) {
+          prevBtn.classList.add("disabled");
+        } else {
+          prevBtn.classList.remove("disabled");
+        }
+
+        if (currentSlide == slidesCount) {
+          nextBtn.classList.add("disabled");
+        } else {
+          nextBtn.classList.remove("disabled");
+        }
+      }
+
+      function removeAllActive() {
+        sliderImages.forEach(function (img) {
+          img.classList.remove("active");
+        });
+
+        paginationBullets.forEach(function (bullet) {
+          bullet.classList.remove("active");
+        });
+      }
+
+      let loopSlideShow;
+      if (!loopSlideShow) {
+        loopSlideShow = setInterval(nextSlide, 5000);
+      }
+
+      if (isMobile().phone) {
+        clearInterval(loopSlideShow);
+      }
+    },
   },
   mounted() {
-    let sliderImages = Array.from(
-      document.querySelectorAll(".slider-container img")
-    );
-    let slidesCount = sliderImages.length;
-    let currentSlide = Math.floor(Math.random() * slidesCount) + 1;
-    let nextBtn = document.getElementById("next");
-    let prevBtn = document.getElementById("prev");
-    nextBtn.onclick = nextSlide;
-    prevBtn.onclick = prevSlide;
-    let paginationElement = document.createElement("ul");
-
-    paginationElement.setAttribute("id", "pagination-ul");
-    for (let i = 1; i <= slidesCount; i++) {
-      let paginationItem = document.createElement("li");
-      paginationItem.setAttribute("data-slide", i);
-      paginationItem.appendChild(document.createTextNode(i));
-      paginationElement.appendChild(paginationItem);
-    }
-    document.getElementById("indicators").appendChild(paginationElement);
-
-    let paginationCreatedUl = document.getElementById("pagination-ul");
-    let paginationBullets = Array.from(
-      document.querySelectorAll("#pagination-ul li")
-    );
-
-    for (let i = 0; i < paginationBullets.length; i++) {
-      paginationBullets[i].onclick = function () {
-        currentSlide = parseInt(this.getAttribute("data-slide"));
-        theChecker();
-      };
-    }
-
-    theChecker();
-
-    function nextSlide() {
-      if (nextBtn.classList.contains("disabled")) {
-        currentSlide = 1;
-        theChecker();
-      } else {
-        currentSlide++;
-        theChecker();
-      }
-    }
-
-    function prevSlide() {
-      currentSlide--;
-      theChecker();
-    }
-
-    function theChecker() {
-      removeAllActive();
-      sliderImages[currentSlide - 1].classList.add("active");
-      paginationCreatedUl.children[currentSlide - 1].classList.add("active");
-
-      if (currentSlide == 1) {
-        prevBtn.classList.add("disabled");
-      } else {
-        prevBtn.classList.remove("disabled");
-      }
-
-      if (currentSlide == slidesCount) {
-        nextBtn.classList.add("disabled");
-      } else {
-        nextBtn.classList.remove("disabled");
-      }
-    }
-
-    function removeAllActive() {
-      sliderImages.forEach(function (img) {
-        img.classList.remove("active");
-      });
-
-      paginationBullets.forEach(function (bullet) {
-        bullet.classList.remove("active");
-      });
-    }
-
-    let loopSlideShow;
-    if (!loopSlideShow) {
-      loopSlideShow = setInterval(nextSlide, 5000);
-    }
-
-    if (isMobile().phone) {
-      clearInterval(loopSlideShow);
-    }
+    this.slider();
   },
 };
 </script>
 
-<style lang="less">
-</style>
+<style lang="less"></style>

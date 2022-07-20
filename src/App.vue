@@ -19,14 +19,14 @@
 </template>
 
 <script>
-import { RouterLink, RouterView } from "vue-router";
+import {RouterView } from "vue-router";
 import Menubar from "./components/app/menubar.vue";
 import Footer from "./components/app/footer.vue";
 import popUp from "./components/app/_popup-modal.vue";
 
 
 export default {
-  components: { Menubar, Footer, RouterLink, RouterView, popUp },
+  components: { Menubar, Footer, RouterView, popUp },
 };
 </script>
 

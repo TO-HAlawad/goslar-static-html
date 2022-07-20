@@ -2,7 +2,7 @@
 	<div class="nav-bar nav-mobile">
 		<nav>
 			<RouterLink class="menu-logo" to="/">
-				<img src="../imgs/logo.png" alt="my logo" />
+				<img src="/img/logo.png" alt="my logo" />
 			</RouterLink>
 
 			<ul id="menu-list">
@@ -14,7 +14,7 @@
 					<span class="material-symbols-outlined hide">airline_seat_individual_suite</span>
 					Ausstattung & Preise
 				</RouterLink>
-				<RouterLink class="menu-item group-item" to="/onlinebuchen">
+				<RouterLink class="menu-item group-item" to="/online-buchen">
 					<span class="material-symbols-outlined hide">book_online</span>
 					Onlinebuchen
 				</RouterLink>

@@ -27,7 +27,7 @@
 
 <style lang="less" scoped>
 .bg-container {
-	background: url("../components/imgs/fewo-goslar-1.jpg");
+	background: url("/img/fewo-goslar-1.jpg");
 	min-height: 100%;
 	min-width: 1024px;
 	width: 100%;

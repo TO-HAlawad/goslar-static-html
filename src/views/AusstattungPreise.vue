@@ -29,7 +29,7 @@ export default {
 
 <style lang="less" scoped>
 .bg-container {
-	background: url("../components/imgs/fewo-goslar-5.jpg");
+	background: url("/img/fewo-goslar-5.jpg");
 	min-height: 100%;
 	min-width: 1024px;
 	width: 100%;

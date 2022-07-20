@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomePage from "../views/home.vue";
+import HomePage from "../views/HomePage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,32 +12,32 @@ const router = createRouter({
     {
       path: "/ausstattung-preise",
       name: "ausstattung & preise",
-      component: () => import("../views/ausstattung-preise.vue"),
+      component: () => import("../views/AusstattungPreise.vue"),
     },
     {
       path: "/online-buchen",
       name: "onlinebuchen",
-      component: () => import("../views/online-buchen.vue"),
+      component: () => import("../views/Onlinebuchen.vue"),
     },
     {
       path: "/goslar",
       name: "goslar",
-      component: () => import("../views/goslar.vue"),
+      component: () => import("../views/Goslar.vue"),
     },
     {
       path: "/anreise",
       name: "anreise",
-      component: () => import("../views/anreise.vue"),
+      component: () => import("../views/Anreise.vue"),
     },
     {
       path: "/kontakt",
       name: "kontakt",
-      component: () => import("../views/kontakt.vue"),
+      component: () => import("../views/Kontakt.vue"),
     },
     {
       path: "/impressum",
       name: "impressum",
-      component: () => import("../views/impressum.vue"),
+      component: () => import("../views/Impressum.vue"),
     },
   ],
 });

@@ -25,8 +25,7 @@
   border-radius: 0;
   height: auto;
   width: auto;
-  max-width: 1050px;
-  max-height: 850px;
+  max-width: 100%;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
@@ -43,7 +42,7 @@
   font-size: 42px;
   position: absolute;
   top: 0;
-  color: rgba(255, 255, 255, .5);
+  color: rgba(255, 255, 255, 0.5);
   right: 0;
   margin: 0 10px;
   cursor: pointer;
@@ -103,4 +102,10 @@
 
 .container-popup .popup .content-popup::selection {
   background-color: #00000050 !important;
+}
+
+@media only screen and (max-width: 1920px) and (orientation: landscape) {
+  .container-popup .popup {
+    max-width: 65% !important;
+  }
 }
