@@ -21,6 +21,7 @@
 					<p class="main-content--address main-content--address--mail">
 						<a href="mailto:info@ferienwohnung-goslar.eu">info@ferienwohnung-goslar.eu</a>
 						<a href="/">www.ferienwohnung-goslar.eu</a>
+						<router-link to="/impressum" style="text-transform:uppercase; font-weight:700;" class="hide">impressum</router-link>
 					</p>
 				</div>
 
@@ -101,7 +102,7 @@ export default {
 
 .content {
 	margin: 2% 0;
-  padding: 0 20px 35px 20px;
+  padding: 0 20px 25%;
 	width: 100%;
 
 	&--title h1 {
@@ -188,5 +189,15 @@ textarea {
 .btn-send:hover {
 	background-color: rgba(175, 12, 31, .80);
 	transform: scale(0.9)
+}
+
+	.hide {
+		display: none;
+	}
+
+@media screen and (max-width:1024px) {
+	.hide {
+		display: block;
+	}
 }
 </style>

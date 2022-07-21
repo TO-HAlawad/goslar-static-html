@@ -7,9 +7,9 @@
         38640 Goslar
       </div>
       <br/>
-      <a href="mailto:info@ferienwohnung-goslar.eu">info@ferienwohnung-goslar.eu</a>
+      <a href="mailto:info@ferienwohnung-goslar.eu" style="font-weight:400;">info@ferienwohnung-goslar.eu</a>
       <br/>
-      <RouterLink class="menu-item" to="/impressum">Impressum</RouterLink>
+      <RouterLink class="menu-item" to="/impressum" style="text-transform:uppercase; font-weight:700;">Impressum</RouterLink>
     </div>
   </div>
 </template>

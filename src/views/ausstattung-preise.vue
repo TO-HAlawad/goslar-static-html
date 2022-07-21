@@ -44,7 +44,7 @@ export default {
 
 .content {
 	margin: 2% 0;
-  padding: 0 20px 35px 20px;
+  padding: 0 20px 25%;
 	width: 100%;
 
 	&--title h1 {
